@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/fonts/HelveticaNeueCyr/HelveticaNeueCyr Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/HelveticaNeueCyr/HelveticaNeueCyr Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/HelveticaNeueCyr/HelveticaNeueCyr Roman.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/HelveticaNeueCyr/HelveticaNeueCyr Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/HelveticaNeueCyr/HelveticaNeueCyr Bold.ttf') format('truetype');
+}
+
+
+@font-face {
+  font-family: 'Sk Modernist';
+  font-weight: 400;
+  src: url('/fonts/Sk-Modernist/Sk-Modernist Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Sk Modernist';
+  font-weight: 500;
+  src: url('/fonts/Sk-Modernist/Sk-Modernist.woff2') format('woff2');
+}
+
