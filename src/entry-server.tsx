@@ -21,14 +21,15 @@ export default createHandler(() => (
           {/* Open Graph Meta Tags */}
           <meta property="og:type" content="website" />
           <meta property="og:title" content="Milan's Portfolio - Full Stack Developer" />
-          <meta property="og:description" content="Explore Milan's portfolio featuring innovative web development projects, full-stack applications, and robust software solutions." />
+          <meta property="og:description" content="I am Milan, Senior Software Engineer from Kerala. I build things I find interesting." />
           <meta property="og:url" content="https://milan-portfolio.com" />
           <meta property="og:site_name" content="Milan's Portfolio" />
           <meta property="og:locale" content="en_US" />
-          <meta property="og:image" content="/og-image.jpg" />
+          {/* TODO: add og image */}
+          {/* <meta property="og:image" content="/og-image.jpg" /> */}
           <meta property="og:image:alt" content="Milan's Portfolio - Full Stack Developer" />
-          <meta property="og:image:width" content="1200" />
-          <meta property="og:image:height" content="630" />
+          {/* <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" /> */}
           
           {/* Twitter Card Meta Tags */}
           <meta name="twitter:card" content="summary_large_image" />
