@@ -118,7 +118,7 @@ const Footer: Component = () => {
           class="font-modernist text-lg lg:text-xl text-gray-700 opacity-0"
           style={{ transform: "translateY(20px)" }}
         >
-          © 2024
+          © {new Date().getFullYear()}
         </div>
       </div>
     </footer>
