@@ -177,7 +177,7 @@ const ICreateSection: Component = () => {
         </div>
         <div class="relative">
           <span class="absolute top-0">
-            <For each={"SOFTWAREFOR".split("")}>
+            <For each={"THINGSFOR".split("")}>
               {(char, index) => (
                 <span
                   ref={(el) => secondText.push(el)}
@@ -194,7 +194,7 @@ const ICreateSection: Component = () => {
               )}
             </For>
           </span>
-          <span class="opacity-0">SOFTWARE FOR</span>
+          <span class="opacity-0">THINGS FOR</span>
         </div>
         <div class="flex gap-x-1 relative">
           {/* <div ref={secondRectRef} class="flex-1 h-[78%] bottom-2 relative bg-white"></div> */}
