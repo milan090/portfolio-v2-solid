@@ -10,6 +10,10 @@
     "@solidjs/router": "^0.13.3",
     "@solidjs/start": "^1.0.1",
     "autoprefixer": "^10.4.19",
+    "glsl-hsl2rgb": "^1.1.0",
+    "glsl-noise": "^0.0.0",
+    "glslify": "^7.1.1",
+    "glslify-loader": "^2.0.0",
     "motion": "^10.18.0",
     "postcss": "^8.4.38",
     "solid-js": "^1.8.17",
@@ -18,5 +22,8 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "vite-plugin-glslify": "^2.2.1"
   }
 }

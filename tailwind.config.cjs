@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         helvetica: ["Helvetica Neue", ...defaultTheme.fontFamily.sans],
+        "helvetica-compressed": ["Helvetica LT Std", ...defaultTheme.fontFamily.sans],
         modernist: ["Sk Modernist", ...defaultTheme.fontFamily.sans],
       }
     }

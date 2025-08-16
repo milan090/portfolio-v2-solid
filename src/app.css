@@ -50,3 +50,8 @@
   src: url('/fonts/Sk-Modernist/Sk-Modernist.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: 'Helvetica LT Std';
+  font-weight: 400;
+  src: url('/fonts/HelveticaLTStd/Helvetica LT Std Ultra Compressed.woff2') format('woff2');
+}

@@ -1,10 +1,16 @@
 import { animate, spring, stagger } from "motion"
 import { For, createEffect, type Component } from "solid-js";
 
+import ShaderBackground from "./ShaderBackground";
+import ClientOnly from "./ClientOnly";
+
 const Hero: Component = () => {
   return (
-    <div id="hero" class="w-screen h-screen relative flex flex-col justify-end">
-      <div class="relative">
+    <div id="hero" class="w-screen h-screen relative flex flex-col justify-end overflow-hidden">
+      <ClientOnly>
+        <ShaderBackground />
+      </ClientOnly>
+      <div class="relative z-10">
         <Name value="MILAN" />
       </div>
       <div class="absolute top-[30vh] right-[20vw]">
@@ -41,7 +47,11 @@ const Name: Component<{ value: string }> = ({ value }) => {
         <span
           class={`relative ${letter == "A" ? "-tracking-[0.05em]" : ""} ${
             letter == "L" ? "tracking-[0.02em]" : ""
-          }`}
+          } text-transparent`}
+          style={{
+            "-webkit-text-stroke": "3.14px black",
+            // "-webkit-text-stroke": "2px white"
+          }}
           ref={(el) => (lettersEl[index] = el)}
         >
           {letter}
@@ -53,7 +63,6 @@ const Name: Component<{ value: string }> = ({ value }) => {
 
 const HeyThere: Component = () => {
   let textLinesEl: HTMLDivElement[] = [];
-  let textLinesBgEl: HTMLDivElement[] = [];
   const textLines = [
     "Hey there! I'm",
     "Fullstack Developer",
@@ -61,39 +70,43 @@ const HeyThere: Component = () => {
   ];
 
   createEffect(() => {
+    // Animate the text sliding upward.
     animate(
       textLinesEl,
       { y: ["35px", 0] },
       {
         delay: stagger(0.12),
         duration: 0.6,
-        easing: "ease-out"
+        easing: "ease-out",
       }
     );
 
+    // Animate the clip-path to reveal the text.
     animate(
-      textLinesBgEl,
-      { y: [0, 30] },
+      textLinesEl,
+      { clipPath: ["inset(0 0 100% 0)", "inset(0 0 0 0)"] },
       {
         delay: stagger(0.12),
         duration: 0.8,
-        easing: "ease-out"
+        easing: "ease-out",
+        
       }
     );
   });
 
   return (
-    <div class="relative font-modernist text-[22px] font-thin">
+    <div class="relative font-modernist text-[22px] font-thin overflow-hidden">
       <For each={textLines}>
         {(line, index) => (
           <div class="relative" style={{ "z-index": 1 + index() }}>
-            <div ref={(el) => (textLinesEl[index()] = el!)} class="relative">
+            <div
+              ref={(el) => (textLinesEl[index()] = el!)}
+              class="relative"
+              // Start fully clipped (hidden) on the right.
+              style={{ "clip-path": "inset(0 100% 0 0)" }}
+            >
               {line}
             </div>
-            <div
-              class="w-full h-20 absolute bg-white z-10 top-0"
-              ref={(el) => (textLinesBgEl[index()] = el!)}
-            ></div>
           </div>
         )}
       </For>
@@ -101,47 +114,39 @@ const HeyThere: Component = () => {
   );
 };
 
+
 const ContactMe: Component = () => {
   let contactMeEl: HTMLDivElement;
-  let hideBgEl: HTMLDivElement;
 
   createEffect(() => {
     animate(
       contactMeEl,
-      { x: ["-20px", 0] },
+      {
+        // Animate a horizontal slide along with a clip-path reveal.
+        x: ["-20px", 0],
+        clipPath: ["inset(0 100% 0 0)", "inset(0 0 0 0)"]
+      },
       {
         delay: 1.9,
         duration: 0.8,
         easing: "ease-out"
       }
     );
-
-    animate(
-      hideBgEl,
-      { x: [-20, -200] },
-      {
-        delay: 1.9,
-        duration: 0.8,
-        easing: spring({
-          damping: 12,
-          stiffness: 28.8,
-          mass: 1
-        })
-      }
-    );
-  }
-  );
+  });
 
   return (
-    <div class="relative font-modernist font-light text-[22px]">
-      <div ref={(el) => hideBgEl = el}  class="bg-white z-10 absolute w-[200px] h-10 left-0" />
-      <div class="underline underline-offset-4"
+    <div class="relative font-modernist font-light text-[22px] overflow-hidden cursor-pointer">
+      <div 
+        class="underline underline-offset-4"
         ref={(el) => contactMeEl = el}
+        // Ensure the text starts hidden by clipping it.
+        style={{ "clip-path": "inset(0 100% 0 0)" }}
       >
         contact me
       </div>
     </div>
-  )
+  );
 }
+
 
 export default Hero;
